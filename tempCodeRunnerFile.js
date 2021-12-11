@@ -1,0 +1,2 @@
+      //  let comanda = `insert into "utilizatori" (username, nume, prenume, parola) values ('${campuriText.username}','${campuriText.nume}','${campuriText.prenume}','${parolaCriptata}')`;
+        let comanda = 'insert into "utilizatori" (username, nume, prenume, parola) values ('ana','are','mere','multe')';
