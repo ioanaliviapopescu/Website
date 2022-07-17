@@ -14,7 +14,7 @@ const nodemailer = require("nodemailer");
 
 
 
-var app=express();//am creat serverul
+var app=express(); //am creat serverul
 
 /*am facut un obiect de tip client*/
 const client = new Client({
@@ -28,7 +28,6 @@ const client = new Client({
 client.connect()
 
 
-//util-nu sterge!
 // client.query('Select * from "Produse"', (err, res) =>{
 //     if(!err){
 //         console.log(res.rows);
@@ -106,12 +105,6 @@ function galerieAnimata(imagini)
     var poz = 0;
     while(nrRand>0)
     {
-        // var poz = Math.floor(Math.random()* imagini.length);
-        // if(!vectImagFinal.includes(imagini[poz])) 
-        // {
-        //     vectImagFinal.push(imagini[poz]);
-        //     nrRand--;
-        // }
         vectImagFinal.push(imagini[poz]);
         poz = poz + 2;
         nrRand--;
@@ -126,67 +119,6 @@ let galImag = verificaImagini();
 let galImagStat = galerieStatica(galImag);
 let galImagAnimata = galerieAnimata(galImag);
 //console.log(galImagAnimata);
-
-
-
-
-//COMENTATA RECENT
-// app.get("*/galerie-animata.css",function(req, res){
-//     res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
-//     let sirScss=fs.readFileSync("./resurse/scss/galerie_animata.scss").toString("utf-8");//citesc scss-ul ca string
-//     let galImagAnimata = galerieAnimata(galImag);
-//     let nrImagini = galImagAnimata.length;
-//     let rezScss=ejs.render(sirScss,{nrImagini});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
-//     fs.writeFileSync("./temp/galerie-animata.scss",rezScss);//scriu scss-ul intr-un fisier temporar
-//     exec("sass ./temp/galerie-animata.scss ./temp/galerie-animata.css", (error, stdout, stderr) => {//execut comanda sass (asa cum am executa in cmd sau PowerShell)
-//         if (error) {
-//             console.log(`error: ${error.message}`);
-//             res.end();//termin transmisiunea in caz de eroare
-//             return;
-//         }
-//         if (stderr) {
-//             console.log(`stderr: ${stderr}`);
-//             res.end();
-//             return;
-//         }
-//         console.log(`stdout: ${stdout}`);
-//         //totul a fost bine, trimit fisierul rezultat din compilarea scss
-//         res.sendFile(path.join(__dirname,"temp/galerie-animata.css"));
-//     });
-// });
-
-
-
-//de la cofetarie
-// app.get("*/galerie-animata.css",function(req, res){
-//     /*Atentie modul de rezolvare din acest app.get() este strict pentru a demonstra niste tehnici
-//     si nu pentru ca ar fi cel mai eficient mod de rezolvare*/
-//     res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
-//     let sirScss=fs.readFileSync("./resurse/scss/galerie_animata.scss").toString("utf-8");//citesc scss-ul cs string
-//     culori=["navy","black","purple","grey"];
-//     let culoareAleatoare =culori[Math.floor(Math.random()*culori.length)];//iau o culoare aleatoare pentru border
-//     let rezScss=ejs.render(sirScss,{culoare:culoareAleatoare});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
-//     console.log(rezScss);
-//     fs.writeFileSync("./temp/galerie-animata.scss",rezScss);//scriu scss-ul intr-un fisier temporar
-//     exec("sass ./temp/galerie-animata.scss ./temp/galerie-animata.css", (error, stdout, stderr) => {//execut comanda sass (asa cum am executa in cmd sau PowerShell)
-//         if (error) {
-//             console.log(`error: ${error.message}`);
-//             res.end();//termin transmisiunea in caz de eroare
-//             return;
-//         }
-//         if (stderr) {
-//             console.log(`stderr: ${stderr}`);
-//             res.end();
-//             return;
-//         }
-//         console.log(`stdout: ${stdout}`);
-//         //totul a fost bine, trimit fisierul rezultat din compilarea scss
-//         res.sendFile(path.join(__dirname,"temp/galerie-animata.css"));
-//     });
-
-// });
-
-
 
 app.get("*/galerie-animata.css",function(req, res){
     res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
@@ -212,78 +144,6 @@ app.get("*/galerie-animata.css",function(req, res){
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// app.get("*/galerie-animata.css",function(req, res){
-//     /*Atentie modul de rezolvare din acest app.get() este strict pentru a demonstra niste tehnici
-//     si nu pentru ca ar fi cel mai eficient mod de rezolvare*/
-//     res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
-//     let sirScss=fs.readFileSync("./resurse/scss/galerie_animata.scss").toString("utf-8");//citesc scss-ul cs string
-//     culori=["navy","black","purple","grey"]
-//     let culoareAleatoare =culori[Math.floor(Math.random()*culori.length)];//iau o culoare aleatoare pentru border
-//     let rezScss=ejs.render(sirScss,{culoare:culoareAleatoare});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
-//     console.log(rezScss);
-//     fs.writeFileSync("./temp/galerie-animata.scss",rezScss);//scriu scss-ul intr-un fisier temporar
-//     exec("sass ./temp/galerie-animata.scss ./temp/galerie-animata.css", (error, stdout, stderr) => {//execut comanda sass (asa cum am executa in cmd sau PowerShell)
-//         if (error) {
-//             console.log(`error: ${error.message}`);
-//             res.end();//termin transmisiunea in caz de eroare
-//             return;
-//         }
-//         if (stderr) {
-//             console.log(`stderr: ${stderr}`);
-//             res.end();
-//             return;
-//         }
-//         console.log(`stdout: ${stdout}`);
-//         //totul a fost bine, trimit fisierul rezultat din compilarea scss
-//         res.sendFile(path.join(__dirname,"temp/galerie-animata.css"));
-//     });
-
-// });
-
 app.get(["/","/index1"],function(req, res){//ca sa pot accesa pagina principala si cu localhost:8080 si cu localhost:8080/index
     const ip = req.ip;
    // console.log(ip);
@@ -291,24 +151,9 @@ app.get(["/","/index1"],function(req, res){//ca sa pot accesa pagina principala 
 })
 
 
-//comnentat recent
-// app.get("/", function(req,res){
-//     const ip = req.ip;
-//     console.log(ip);
-//     res.render("pagini/index1", {ip: ip, imagini: verificaImagini()});
-// });
-
-//am scos statusul
-// app.get("/galeriestatica", function(req, res){
-//     res.status(403).render("pagini/galeriestatica", {imagini: galImagStat});
-// })
-
  app.get("/galeriestatica", function(req, res){
      res.render("pagini/galeriestatica", {imagini: galImagStat});
  })
-//  app.get("/galerieanimata", function(req, res){
-//     res.render("pagini/galerieanimata", {imagini: galImagAnimata});
-// })
 
 app.get("/galerieanimata", function(req, res){
     res.render("pagini/galerieanimata", {imagini: verificaImagini()});
@@ -317,14 +162,6 @@ app.get("/galerieanimata", function(req, res){
 app.get("*/galerie.json", function(req, res){
     res.status(403).render("pagini/403");
 })
-
-
-// app.get(["/","/index"],function(req, res){
-//     const ip = req.ip;
-//     console.log(ip);
-//     let galImagAnimata = galerieAnimata(galImag);
-//     res.render("pagini/index", {ip: ip, imagini: galImagStat, galImagAnimata}); 
-// });
 
 app.get("/galeriestatica",function(req, res){
     res.render("pagini/galeriestatica", {imagini: verificaImagini()}); /* relative intotdeauna la folderul views*/
@@ -338,12 +175,8 @@ app.get("/produse", function(req, res){
    // console.log("select * from produse1 " + conditie);
     client.query("select * from produse1 where 1=1" + conditie, function(err,rez){
         client.query("select unnest(enum_range(null::categ_poza)) as categ", function(err,rezcateg){
-           // console.log(rezcateg);
             res.render("pagini/produse", {produse:rez.rows, categorii:rezcateg.rows});
         });
-        // res.render("pagini/produse", {produse:rez.rows});
-        // console.log("Query:", req.query.);
-        // console.log(req.url);
     });
 });
 
@@ -381,15 +214,6 @@ app.post("/inreg", function(req, res){
     
 });
 
-
-    // client.query(`insert into "utilizatori"(username, nume, prenume, parola) values ('a','b','c','d')`, function(err, res){
-    //     if(!err){
-    //         console.log(res.rows);
-    //     }else {
-    //         console.log(err.message);
-    //     }
-    //     client.end;
-    // });
 /*cerere generala*/
 app.get("/*",function(req, res){    
     res.render("pagini"+req.url, function(err,rezultatRandare){
